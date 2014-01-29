@@ -5,7 +5,7 @@ This workflow calculates the route from the current location to a contact from y
 The scripts use the shipped python version and the nice alfred module by nikipore (included). Because of the usage of OS X APIs there are requirements for the OS X version. I developed and tested the workflow on 10.8.4 and 10.9.1, but perhaps older versions are also working (feedback?).
  
 ## Installation:
-You could either download the alfredworklow file in the dist folder or just clone the repository to your Alfred workflow folder:
+You could either download the alfredworkflow file in the dist folder or just clone the repository to your Alfred workflow folder:
 
 ```bash
 git clone https://github.com/abyth/alfred-route-contact-workflow.git\
