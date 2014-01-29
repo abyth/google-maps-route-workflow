@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>strack.route</string>
+	<key>connections</key>
+	<dict>
+		<key>3951E256-FD5B-440A-9E27-FDE876794C44</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A6A8BCD9-77FF-4243-AFE7-564354CE30D3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>A6A8BCD9-77FF-4243-AFE7-564354CE30D3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>19A7996F-89F3-4551-8F6B-4EA536AFF042</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Christian Strack</string>
+	<key>description</key>
+	<string>Open Google Maps with the route from the current position to a contact or a specified location</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Route to contact or location</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>route</string>
+				<key>runningsubtext</key>
+				<string>Searching for contacts</string>
+				<key>script</key>
+				<string>python getContacts.py {query}</string>
+				<key>subtext</key>
+				<string>Type the name of the contact or location</string>
+				<key>title</key>
+				<string>Calculate route to</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>3951E256-FD5B-440A-9E27-FDE876794C44</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Error during route calculation</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>19A7996F-89F3-4551-8F6B-4EA536AFF042</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>python getPosition.py {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A6A8BCD9-77FF-4243-AFE7-564354CE30D3</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>19A7996F-89F3-4551-8F6B-4EA536AFF042</key>
+		<dict>
+			<key>ypos</key>
+			<real>110</real>
+		</dict>
+		<key>3951E256-FD5B-440A-9E27-FDE876794C44</key>
+		<dict>
+			<key>ypos</key>
+			<real>110</real>
+		</dict>
+		<key>A6A8BCD9-77FF-4243-AFE7-564354CE30D3</key>
+		<dict>
+			<key>ypos</key>
+			<real>110</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
