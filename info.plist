@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>strack.route</string>
+	<string>strack.google.routes</string>
 	<key>connections</key>
 	<dict>
 		<key>3951E256-FD5B-440A-9E27-FDE876794C44</key>
@@ -55,7 +55,7 @@
 				<key>subtext</key>
 				<string>Type the name of the contact or location</string>
 				<key>title</key>
-				<string>Calculate route to</string>
+				<string>Calculate route</string>
 				<key>type</key>
 				<integer>5</integer>
 				<key>withspace</key>
