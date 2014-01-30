@@ -32,11 +32,11 @@
 	<key>createdby</key>
 	<string>Christian Strack</string>
 	<key>description</key>
-	<string>Open Google Maps with the route from the current position to a contact or a specified location</string>
+	<string>Open Google Maps with the route between two specified addresses (contact, location or specified address)</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Route to contact or location</string>
+	<string>Google Maps Routes</string>
 	<key>objects</key>
 	<array>
 		<dict>
