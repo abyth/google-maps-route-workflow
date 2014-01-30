@@ -8,7 +8,7 @@ The scripts use the shipped python version and the nice alfred module by nikipor
 You could either download the alfredworkflow file from Packal or clone the repository to your Alfred workflow folder:
 
 ```bash
-git clone https://github.com/abyth/alfred-route-contact-workflow.git\
+git clone https://github.com/abyth/google-maps-route-workflow.git\
   ~/Library/Application\ Support/Alfred\ 2/Alfred.alfredpreferences/workflows/
 ```
 
