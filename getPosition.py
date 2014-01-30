@@ -50,7 +50,7 @@ class LocationManager(NSObject):
 
 query = decode(sys.argv[1])
 
-dests = query.split(';',1)
+dests = filter(lambda x:x!=u"", query.split(';',1))
 
 if len(dests)<2:
 	clm = LocationManager.alloc().init_with_thread(NSThread.currentThread())
@@ -65,7 +65,7 @@ if len(dests)<2:
 		latitude = unicode(loc.coordinate().latitude)
 		longitude = unicode(loc.coordinate().longitude)
 	clm.dealloc()
-	if query.startsWith(';'):
+	if query.index(';') < 2:
 		url = url.replace(u"{source}",latitude + u"," + longitude)
 		url = url.replace(u"{destination}", dests[0])
 	else: 
