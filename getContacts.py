@@ -111,6 +111,7 @@ else:
 						subtitle = pl["type"] + u" -> " + pl2["type"], 
 						icon = ('public.vcard', {'type': 'filetype'})
 						)
+					out.append(item)
 			else:
 				item = alfred.Item(
 					attributes = {'uid' : alfred.uid(0), 'arg' : pl["addr"]+ u";" + addrs[1]}, 
