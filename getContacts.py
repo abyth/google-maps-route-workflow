@@ -119,7 +119,7 @@ else:
 					subtitle = pl["type"] + u" -> Non contact address", 
 					icon = ('public.vcard', {'type': 'filetype'})
 					)
-			out.append(item)				
+				out.append(item)				
 	else:
 		if flag2:
 			for pl2 in addrs[1]:
