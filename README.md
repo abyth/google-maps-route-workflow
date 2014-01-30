@@ -1,4 +1,4 @@
-# Route to contact or location
+# Google Maps Routes
 This workflow calculates the route from the current location, a contact from your address book or a specified location to either the current location, a contact from your address book or a specified location. The scripts are written in python and use the pre-installed objective-c bridge pyobjc to search the address book and determine the current location with CoreLocation. Because of this, OS X will display messages that ask for the permission to use CoreLocation and AddressBook.
  
 ## Requirements:
