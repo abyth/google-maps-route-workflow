@@ -9,9 +9,7 @@ import alfred
 
 def decode(s): return normalize('NFC', s.decode('utf-8'))
 
-target = decode(sys.argv[1])
-
-url = u"https://maps.google.de/maps?saddr={latitude},{longitude}&daddr={target}"
+url = u"https://maps.google.de/maps?saddr={source}&daddr={destination}"
 
 class LocationManager(NSObject):
 
@@ -50,18 +48,32 @@ class LocationManager(NSObject):
 	def wakeUp(self):
 		pass
 
-clm = LocationManager.alloc().init_with_thread(NSThread.currentThread())
+query = decode(sys.argv[1])
 
-loop = NSRunLoop.currentRunLoop()
+dests = query.split(';',1)
 
-loop.runMode_beforeDate_(NSDefaultRunLoopMode, NSDate.distantFuture())
+if len(dests)<2:
+	clm = LocationManager.alloc().init_with_thread(NSThread.currentThread())
 
-loc = clm.goodLocation
+	loop = NSRunLoop.currentRunLoop()
 
-if loc != None:
-	url = url.replace(u"{latitude}", unicode(loc.coordinate().latitude))
-	url = url.replace(u"{longitude}", unicode(loc.coordinate().longitude))
-	url = url.replace(u"{target}", target)
+	loop.runMode_beforeDate_(NSDefaultRunLoopMode, NSDate.distantFuture())
 
-	webbrowser.open(url.encode('utf-8'))
-clm.dealloc()
+	loc = clm.goodLocation
+
+	if loc != None:
+		latitude = unicode(loc.coordinate().latitude)
+		longitude = unicode(loc.coordinate().longitude)
+	clm.dealloc()
+	if query.startsWith(';'):
+		url = url.replace(u"{source}",latitude + u"," + longitude)
+		url = url.replace(u"{destination}", dests[0])
+	else: 
+		url = url.replace(u"{destination}",latitude + u"," + longitude)
+		url = url.replace(u"{source}", dests[0])
+else:
+	url = url.replace(u"{source}", dests[0])
+	url = url.replace(u"{destination}", dests[1])
+
+webbrowser.open(url.encode('utf-8'))
+
