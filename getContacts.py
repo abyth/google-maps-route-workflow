@@ -72,14 +72,14 @@ if len(query)<3:
 		for pl in addrs[0]:	
 			item = alfred.Item(
 				attributes = {'uid' : alfred.uid(0), 'arg' : u";"+pl["addr"]},
-				title = u"Position -> " + pl["first"] + u" " + pl["last"],
+				title = u"Position ⇢ " + pl["first"] + u" " + pl["last"],
 				subtitle = pl["type"],
 				icon = ('public.vcard', {'type': 'filetype'})
 				)
 			out.append(item)
 			item = alfred.Item(
 				attributes = {'uid' : alfred.uid(0), 'arg' : pl["addr"]+u";"},
-				title = pl["first"] + u" " + pl["last"] + u" -> Position",
+				title = pl["first"] + u" " + pl["last"] + u" ⇢ Position",
 				subtitle = pl["type"],
 				icon = ('public.vcard', {'type': 'filetype'})
 				)
@@ -87,14 +87,14 @@ if len(query)<3:
 	else:
 		item = alfred.Item(
 			attributes = {'uid' : alfred.uid(0), 'arg' : u";"+addrs[0]},
-			title = u"Position -> " + addrs[0],
+			title = u"Position ⇢ " + addrs[0],
 			subtitle = u"Non contact address",
 			icon = 'icon.png'
 			)
 		out.append(item)
 		item = alfred.Item(
 			attributes = {'uid' : alfred.uid(0), 'arg' : addrs[0]+u";"},
-			title = addrs[0] + u" -> Position",
+			title = addrs[0] + u" ⇢ Position",
 			subtitle = u"Non contact address",
 			icon = 'icon.png'
 			)			
@@ -107,16 +107,16 @@ else:
 					if pl == pl2 : break
 					item = alfred.Item(
 						attributes = {'uid' : alfred.uid(0), 'arg' : pl["addr"]+ u";" + pl2["addr"]}, 
-						title = pl["first"] + u" " + pl["last"] + u" -> " + pl2["first"] + u" " + pl2["last"], 
-						subtitle = pl["type"] + u" -> " + pl2["type"], 
+						title = pl["first"] + u" " + pl["last"] + u" ⇢ " + pl2["first"] + u" " + pl2["last"], 
+						subtitle = pl["type"] + u" ⇢ " + pl2["type"], 
 						icon = ('public.vcard', {'type': 'filetype'})
 						)
 					out.append(item)
 			else:
 				item = alfred.Item(
 					attributes = {'uid' : alfred.uid(0), 'arg' : pl["addr"]+ u";" + addrs[1]}, 
-					title = pl["first"] + u" " + pl["last"] + u" -> " + addrs[1], 
-					subtitle = pl["type"] + u" -> Non contact address", 
+					title = pl["first"] + u" " + pl["last"] + u" ⇢ " + addrs[1], 
+					subtitle = pl["type"] + u" ⇢ Non contact address", 
 					icon = ('public.vcard', {'type': 'filetype'})
 					)
 				out.append(item)				
@@ -125,16 +125,16 @@ else:
 			for pl2 in addrs[1]:
 				item = alfred.Item(
 					attributes = {'uid' : alfred.uid(0), 'arg' : addrs[0] + u";" + pl["addr"]}, 
-					title = addrs[0] + u" -> " + pl["first"] + u" " + pl["last"], 
-					subtitle = u"Non contact address -> " + pl2["type"], 
+					title = addrs[0] + u" ⇢ " + pl["first"] + u" " + pl["last"], 
+					subtitle = u"Non contact address ⇢ " + pl2["type"], 
 					icon = ('public.vcard', {'type': 'filetype'})
 					)
 				out.append(item)					
 		else:
 			item = alfred.Item(
 				attributes = {'uid' : alfred.uid(0), 'arg' : addrs[0]+ u";" + addrs[1]},
-				title = addrs[0] + u" -> " + addrs[1],
-				subtitle = u"Non contact address -> Non contact address",
+				title = addrs[0] + u" ⇢ " + addrs[1],
+				subtitle = u"Non contact address ⇢ Non contact address",
 				icon = 'icon.png'
 				)	
 			out.append(item)
