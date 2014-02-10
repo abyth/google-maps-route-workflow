@@ -2,14 +2,15 @@
 from CoreLocation import CLLocationManager
 from Cocoa import (NSObject, NSRunLoop, NSDefaultRunLoopMode, NSDate, NSThread)
 import sys
-import webbrowser
 import time
 from unicodedata import normalize
 import alfred
+import subprocess
 
 def decode(s): return normalize('NFC', s.decode('utf-8'))
 
-url = u"https://maps.google.de/maps?saddr={source}&daddr={destination}"
+vendors = { 'google' : u"https://maps.google.de/maps?saddr={source}&daddr={destination}",
+			'apple' :  u"https://maps.apple.com/?saddr={source}&daddr={destination}"}
 
 class LocationManager(NSObject):
 
@@ -50,6 +51,13 @@ class LocationManager(NSObject):
 
 query = decode(sys.argv[1])
 
+f = open('vendor')
+try:
+	url = vendors[f.readline().rstrip()]
+except Exception, e:
+	url = vendors['google']
+	f.close()	
+
 dests = filter(lambda x:x!=u"", query.split(';',1))
 
 if len(dests)<2:
@@ -75,5 +83,5 @@ else:
 	url = url.replace(u"{source}", dests[0])
 	url = url.replace(u"{destination}", dests[1])
 
-webbrowser.open(url.encode('utf-8'))
+subprocess.call(['open', url])
 

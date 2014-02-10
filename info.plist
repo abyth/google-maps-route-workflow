@@ -17,6 +17,17 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>90D934D0-1C90-4F8A-AA1C-32D03E11901E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3377A53F-31F2-42A0-A88B-54EABCFC2D3E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>A6A8BCD9-77FF-4243-AFE7-564354CE30D3</key>
 		<array>
 			<dict>
@@ -39,6 +50,23 @@
 	<string>Google Maps Routes</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>python getPosition.py {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A6A8BCD9-77FF-4243-AFE7-564354CE30D3</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -96,17 +124,62 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>route-pref</string>
+				<key>runningsubtext</key>
+				<string>...</string>
+				<key>script</key>
+				<string>import alfred
+
+out = []
+
+out.append(alfred.Item(
+			attributes = {'uid' : alfred.uid(0), 'arg' : 'google'},
+			title = "Google Maps",
+			subtitle = "Display routes in the default browser using Google Maps",
+			icon = 'icon.png'))
+
+out.append(alfred.Item(
+			attributes = {'uid' : alfred.uid(0), 'arg' : 'apple'},
+			title = "Apple Maps",
+			subtitle = "Display routes using Maps.app",
+			icon = 'icon.png'))
+
+alfred.write(alfred.xml(out))</string>
+				<key>subtext</key>
+				<string>Choose the prefered map vendor</string>
+				<key>title</key>
+				<string>Configure the prefered map vendor</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>90D934D0-1C90-4F8A-AA1C-32D03E11901E</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
-				<string>python getPosition.py {query}</string>
+				<string>echo {query} &gt; vendor</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>5</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>A6A8BCD9-77FF-4243-AFE7-564354CE30D3</string>
+			<string>3377A53F-31F2-42A0-A88B-54EABCFC2D3E</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -120,10 +193,20 @@
 			<key>ypos</key>
 			<real>110</real>
 		</dict>
+		<key>3377A53F-31F2-42A0-A88B-54EABCFC2D3E</key>
+		<dict>
+			<key>ypos</key>
+			<real>230</real>
+		</dict>
 		<key>3951E256-FD5B-440A-9E27-FDE876794C44</key>
 		<dict>
 			<key>ypos</key>
 			<real>110</real>
+		</dict>
+		<key>90D934D0-1C90-4F8A-AA1C-32D03E11901E</key>
+		<dict>
+			<key>ypos</key>
+			<real>230</real>
 		</dict>
 		<key>A6A8BCD9-77FF-4243-AFE7-564354CE30D3</key>
 		<dict>
